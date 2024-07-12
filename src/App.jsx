@@ -25,6 +25,7 @@ function App() {
 
         <Medicine />
       </Container>
+      <h1>hamza hasan</h1>
     </>
   );
 }
