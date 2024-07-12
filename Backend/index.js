@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const multer = require("multer");
 
 const app = express();
 
@@ -25,6 +26,48 @@ app.post("/users", (req, res) => {
   db.query(sql, [values], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
+  });
+});
+
+const database = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "test",
+});
+
+database.connect(function (err) {
+  if (err) {
+    console.log("Error in connection");
+  } else {
+    console.log("connected");
+  }
+});
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    return cb(null, "./public/images");
+  },
+  filename: function (req, file, cb) {
+    return cb(null, `${Date.now()}_${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post("/create", upload.single("file"), (req, res) => {
+  const sql =
+    "INSERT INTO products (pro_name,pro_name1,pro_mrp,images) VALUES (?)";
+  const values = [
+    req.body.pro_name,
+    req.body.pro_name1,
+    req.body.pro_mrp,
+    req.file.filename,
+  ];
+
+  database.query(sql, [values], (err, result) => {
+    if (err) return res.json({ Error: "Error sign up query" });
+    return res.json({ Status: "Success" });
   });
 });
 
