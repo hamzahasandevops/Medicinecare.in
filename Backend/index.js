@@ -14,19 +14,15 @@ const db = mysql.createConnection({
   database: "test",
 });
 
-app.post("/test", (req, res) => {
-  const sql = "INSERT INTO login ('name','email','password') Values (?)";
+db.connect();
+
+// app.post("/test", (req, res) => {});
+
+app.post("/users", (req, res) => {
+  const sql = "INSERT INTO login (name,email,password) Values (?)";
   const values = [req.body.name, req.body.email, req.body.password];
 
   db.query(sql, [values], (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.get("/users", (req, res) => {
-  const sql = "SELECT * FROM products";
-  db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });

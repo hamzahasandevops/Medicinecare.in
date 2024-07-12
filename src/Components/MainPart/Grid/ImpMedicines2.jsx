@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Grid,
   Typography,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -22,14 +23,16 @@ export default function ImpMedicines2() {
   console.log(data);
 
   return (
-    <Card sx={{ display: "flex" }}>
+    <Grid sx={{ display: "flex" }} sm={12} md={12} lg={8}>
       {data &&
+        data.length > 0 &&
         data.map((d, i) => {
           return (
             <>
               <Card
                 sx={{
-                  boxShadow: "0 0 1 0 black",
+                  boxShadow: "1 1 1 1 black",
+                  background: "",
                 }}
                 key={d.id}
               >
@@ -67,6 +70,6 @@ export default function ImpMedicines2() {
             </>
           );
         })}
-    </Card>
+    </Grid>
   );
 }

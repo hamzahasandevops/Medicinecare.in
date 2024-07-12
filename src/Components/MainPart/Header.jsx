@@ -38,6 +38,7 @@ function Header(props) {
         >
           {title}
         </Typography>
+
         <IconButton>
           <SearchIcon />
         </IconButton>
@@ -45,7 +46,7 @@ function Header(props) {
           Sign up
         </Button>
         <Button variant="outlined" size="small" href="">
-          Products
+          CART
         </Button>
       </Toolbar>
     </React.Fragment>

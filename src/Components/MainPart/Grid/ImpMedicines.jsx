@@ -12,7 +12,18 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 export default function ImpMedicines() {
   return (
     <div>
-      <Card sx={{ boxShadow: "0 0 1 0 black" }}>
+      <Card>
+        <Typography
+          variant="h5"
+          sx={{
+            flexWrap: "wrap",
+            padding: "0px",
+            fontSize: "20px",
+            textAlign: "center",
+          }}
+        >
+          Trending Homeopathic Medicines
+        </Typography>
         <CardMedia
           sx={{
             height: 200,
