@@ -71,6 +71,21 @@ app.post("/create", upload.single("file"), (req, res) => {
   });
 });
 
+const conndb = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "test",
+});
+
+conndb.connect(function (err) {
+  if (err) {
+    console.log("Error in connection");
+  } else {
+    console.log("connected");
+  }
+});
+
 app.get("/", (req, res) => {
   return res.json("From backend side sun raha hoon");
 });

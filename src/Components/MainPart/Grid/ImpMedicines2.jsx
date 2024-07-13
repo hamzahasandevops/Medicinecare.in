@@ -14,7 +14,7 @@ export default function ImpMedicines2() {
   const [data, setdata] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8090/users")
+    fetch("http://localhost:8000/create")
       .then((res) => res.json())
       .then((data) => setdata(data))
       .then((err) => console.log(err));
@@ -31,46 +31,28 @@ export default function ImpMedicines2() {
           data.map((d, i) => {
             return (
               <>
-                <Card
-                  sx={{
-                    boxShadow: "1 1 1 1 black",
-                    background: "",
-                  }}
-                  key={d.id}
-                >
-                  <CardContent sx={{}} key={d.id}>
-                    <CardMedia
-                      sx={{
-                        height: 200,
-                        width: 200,
-                        backgroundSize: "contain",
-                        marginLeft: 5,
-                        borderColor: "divider",
-                      }}
-                      image={d.images}
-                      title="green iguana"
-                    />
-                    <CardContent sx={{ marginLeft: 5 }} key={d.images}>
-                      <Typography sx={{ flexWrap: "wrap" }}>
-                        {d.pro_name}
-                      </Typography>
-                      <Typography sx={{}}>{d.pro_name1}</Typography>
-                      <Typography
-                        sx={{ fontFamily: "sans-serif", fontSize: 25 }}
-                      >
-                        MRP <del>{d.pro_mrp}</del>
-                      </Typography>
-                    </CardContent>
-                    <CardActions sx={{ marginLeft: 5 }}>
-                      <Button
-                        variant="contained"
-                        endIcon={<AddShoppingCartIcon />}
-                      >
-                        Add to Cart
-                      </Button>
-                    </CardActions>
-                  </CardContent>
-                </Card>
+                {/* <div className="col-md-4" key={d.id}>
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    // image={`http://localhost:8000/images/` + d.images}
+                    title="green iguana"
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Last updated 3 mins ago
+                      </small>
+                    </p>
+                  </div>
+                </div> */}
               </>
             );
           })}

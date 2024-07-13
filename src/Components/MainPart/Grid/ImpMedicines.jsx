@@ -11,13 +11,14 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 export default function ImpMedicines() {
   return (
-    <div>
+    <div sx={{ border: 1 }}>
       <Card>
         <Typography
           variant="h5"
           sx={{
             flexWrap: "wrap",
             padding: "0px",
+            margin: "5px 7px 0 7px",
             fontSize: "20px",
             textAlign: "center",
           }}
