@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Cart from "../Cart/Cart";
+import Product from "./Product";
 export default function HomeData() {
   const [data, setData] = useState("");
 
@@ -24,31 +25,16 @@ export default function HomeData() {
     FetchApi();
   }, []);
 
-  console.log(data);
+
 
   return (
     <>
-      <div>
-        {data &&
+      <div className="row row-cols-1 row-cols-md-3 g-4  ">
+        {data &&      
           data.length > 0 &&
           data.map((prod, i) => {
             return (
-              <>
-                <img
-                  src={prod.images}
-                  width="200px"
-                  height="200px"
-                  className="border rounded"
-                />
-                <br />
-                <span>{prod.title}</span>
-                <p>${prod.price}</p>
-                <p>{prod.brand}</p>
-                <p>{prod.availabilityStatus}</p>
-                <h4>{prod.description}</h4>
-                <h2>rating {prod.rating}</h2>
-                <button className="btn btn-primary  ">ADD TO CART</button>
-              </>
+            <Product product = {prod} key={i}/>
             );
           })}
       </div>
