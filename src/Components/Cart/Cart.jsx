@@ -25,7 +25,7 @@ export default function Cart() {
                 <img src={c.images} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title"> {c.title}</h5>
-                 
+                  <p class="card-text">{c.desclaimer}</p>
                   <a href="#" >Remove from cart</a>
                 
                 </div>
