@@ -1,13 +1,12 @@
-import { Email, Password } from "@mui/icons-material";
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
 export default function Form() {
   const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: "dfg",
+    email: "dfgdfg",
+    password: "dfgdg",
   });
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: [event.target.value] });
@@ -15,10 +14,15 @@ export default function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8090/test", values)
+    axios({
+      method: "post",
+      url: "http://localhost:8090/users",
+      data: values,
+    })
       .then((res) => console.log("ho gva be"))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        throw err;
+      });
   };
 
   console.log(values);

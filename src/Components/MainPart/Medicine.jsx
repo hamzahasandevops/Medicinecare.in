@@ -10,24 +10,32 @@ import {
 } from "@mui/material";
 import React from "react";
 import ImpMedicines from "./Grid/ImpMedicines";
-import ImpMedicines2 from "./Grid/ImpMedicines2";
+import HomeData from "../Data/HomeData";
 
 export default function Medicine() {
   return (
     <>
       <Grid container spacing={2} sx={{ marginTop: "10px" }}>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={12} md={3} sm={12} sx={{}}>
           <ImpMedicines />
         </Grid>
-        <Grid item xs={12} md={9}>
-          <ImpMedicines2 />
-        </Grid>
-        <Grid item xs={6} md={6}>
+        <Grid
+          item
+          xs={12}
+          md={9}
+          xl={9}
+          sx={{
+            display: { xs: "none", lg: "block", xl: "none", sm: "block" },
+          }}
+        >
+          <HomeData />
+        </Grid> 
+        {/* <Grid item xs={6} md={6}>
           <Typography>3</Typography>
         </Grid>
         <Grid item xs={6} md={6}>
           <Typography>4</Typography>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );
