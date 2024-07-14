@@ -43,7 +43,11 @@ export default function HomeData() {
                 <br />
                 <span>{prod.title}</span>
                 <p>${prod.price}</p>
+                <p>{prod.brand}</p>
+                <p>{prod.availabilityStatus}</p>
                 <h4>{prod.description}</h4>
+                <h2>rating {prod.rating}</h2>
+                <button className="btn btn-primary  ">ADD TO CART</button>
               </>
             );
           })}

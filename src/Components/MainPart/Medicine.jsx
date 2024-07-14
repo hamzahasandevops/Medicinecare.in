@@ -24,7 +24,9 @@ export default function Medicine() {
           xs={12}
           md={9}
           xl={9}
-          sx={{ display: { xs: "none", sm: "block" } }}
+          sx={{
+            display: { xs: "none", lg: "none", xl: "none", sm: "block" },
+          }}
         >
           <HomeData />
         </Grid>
