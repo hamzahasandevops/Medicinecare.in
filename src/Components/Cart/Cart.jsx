@@ -1,20 +1,22 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../Features/ContextProvider";
+import { totalItem } from "../Features/CartReducer";
+import { totalPrice } from "../Features/CartReducer";
 
 export default function Cart() {
   const { cart, dispatch } = useContext(CartContext);
 
   const increase = (id) => {
-    const index = cart.findIndex((p) => p.id === id);
-    if (cart[index].length < 10) {
+    const Index = cart.findIndex((p) => p.id === id);
+    if (cart[Index].quantity < 10) {
       dispatch({ type: "Increase", id });
     }
   };
 
   const decrease = (id) => {
-    const index = cart.findIndex((p) => p.id === id);
-    if (cart[index].length > 1) {
+    const Index = cart.findIndex((p) => p.id === id);
+    if (cart[Index].quantity > 1) {
       dispatch({ type: "Decrease", id });
     }
   };
@@ -37,26 +39,37 @@ export default function Cart() {
                     </div>
                     <div>
                       <button
-                        className="rounded circle px-2"
+                        className="rounded circle px-2 btn btn-success"
                         onClick={() => decrease(c.id)}
                       >
                         <b>-</b>
                       </button>
-
+                      <button className="btn btn-primary mx-2">
+                        {c.quantity}
+                      </button>
                       <button
-                        className="rounded circle px-2"
+                        className="rounded circle px-2 btn btn-success"
                         onClick={() => increase(c.id)}
                       >
                         <b>+</b>
                       </button>
-                      <button className="rounded circle px-2">Remove</button>
+                      <button
+                        className="rounded circle px-2 btn btn-primary mx-2"
+                        onClick={() => dispatch({ type: "Remove", id: c.id })}
+                      >
+                        Remove
+                      </button>
                     </div>
                   </div>
                 </>
               );
             })}
         </div>
-        <div className="col-4"></div>
+        <div className="col-4">
+          <p>Total Items:{totalItem(cart)}</p>
+          <p>Total price:${totalPrice(cart)}</p>
+          <button>checkout</button>
+        </div>
       </div>
     </div>
   );

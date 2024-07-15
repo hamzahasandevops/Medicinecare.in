@@ -29,7 +29,7 @@ export default function Medicine() {
           }}
         >
           <HomeData />
-        </Grid> 
+        </Grid>
         {/* <Grid item xs={6} md={6}>
           <Typography>3</Typography>
         </Grid>
