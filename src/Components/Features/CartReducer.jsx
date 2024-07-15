@@ -1,15 +1,23 @@
+const CartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return [...state, action.product];
 
+    case "Remove":
 
- const CartReducer = (state,action) =>{
-    switch(action.type){
-        case "ADD" :
-         return [...state , action.product]
+    case "Increase":
+      const IndexI = state.findIndex((p) => p.id === action.id);
+      state[IndexI].length += 1;
+      return [...state];
 
-        case "Remove":
+    case "Decrease":
+      const IndexD = state.findIndex((p) => p.id === action.id);
+      state[IndexD].length -= 1;
+      return [...state];
 
-        case "Increase":
-            default :state
-    }
-}
+    default:
+      state;
+  }
+};
 
-export default CartReducer
+export default CartReducer;
