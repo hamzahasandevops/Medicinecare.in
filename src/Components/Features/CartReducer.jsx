@@ -11,7 +11,19 @@ export const totalPrice = (cart) => {
 const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return [...state, action.product];
+      const existingIndex = state.findIndex(
+        (item) => item.id === action.product.id
+      );
+      if (existingIndex !== -1) {
+        const updatedCart = [...state];
+        updatedCart[existingIndex] = {
+          ...updatedCart[existingIndex],
+          quantity: updatedCart[existingIndex].quantity + 1,
+        };
+        return updatedCart;
+      } else {
+        return [...state, action.product];
+      }
 
     case "Remove":
       return state.filter((p) => p.id !== action.id);
