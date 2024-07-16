@@ -94,7 +94,17 @@ function Header(props) {
         >
           {title}
         </Typography>
-
+        <Box>
+          {" "}
+          <input
+            type="text"
+            className="form-control"
+            style={{ fontStyle: "italic" }}
+            placeholder="Search..."
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </Box>
         <IconButton>
           <SearchIcon />
         </IconButton>

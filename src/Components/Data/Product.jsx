@@ -4,7 +4,7 @@ import { CartContext } from "../Features/ContextProvider";
 
 export default function Product({ product }) {
   const { dispatch } = useContext(CartContext);
-  console.log(product);
+
   return (
     <>
       <div>
