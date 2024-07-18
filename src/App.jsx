@@ -10,7 +10,7 @@ import Cart from "./Components/Cart/Cart";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductForm from "./Components/Form/ProductForm";
-
+import Dashbord from "./Dashbord/Dashbord";
 function App() {
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
           <Route path="/signup" element={<Form />}></Route>
           <Route path="/product" element={<ProductForm />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/dashbord" element={<Dashbord />}></Route>
         </Routes>
 
         <Container maxWidth="xl">
